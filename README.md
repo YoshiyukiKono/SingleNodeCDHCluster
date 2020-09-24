@@ -18,36 +18,37 @@ This script automatically sets up a CDH cluster on the public cloud (AWS) on a s
 
 Below are instructions for creating the cluster.
 
-### Provisioning Cluster
+### VM Instance
 - Create a Centos 7 VM with at least 8 vCPUs/ 32 GB RAM. Choose the plain vanilla Centos image, not a cloudera-centos image.
   - e.g., CentOS Linux 7 x86_64 HVM EBS ENA ('Ohio' Region AMI ID: "ami-01e36b7901e884a10")
-- OS disk size: at least 50 GB.
+  - OS disk size: at least 50 GB.
 
-### Configuration and installation
+You can find a script for AWS CLI [here](https://github.com/YoshiyukiKono/cloudera-aws-scripts) (It is not mandatory to use this project).
+  
+### Network Configuration
 - add 2 inbound rules to the Security Group:
   - to allow your IP only, for all ports.
   - to allow the VM's own IP, i.e., your Security Group, for all ports.
   
-### Procedure
-- ssh into VM
-- run the subsequent processes as root account
+### ProcedureH
+SSH into the VM that you created.
+
+Run the subsequent processes as root account.
 ```
 $ sudo su -
 ```
-- install git command
+Install git command.
 ```
 # yum install -y git
 ```
-- clone this project and change directory to the root of this project
+Clone this project and change directory to the root of the project.
 ```
 # git clone <Repository URL>
 # cd <Repository Name>
 ```
 
-The script `setup.sh` takes 1 arguments:
-- the template file.
+Execute the script, `setup.sh`, which takes an argument, cluster template file.
 
-Example: create cluster using base_template.json
 ```
 $ ./setup.sh base_template.json
 ```
@@ -64,7 +65,6 @@ You can check if Cloudera Manager Server is running as follows.
 ## Use
 
 Once the script returns, you can open Cloudera Manager at [http://\<public-IP\>:7180](http://<public-IP>:7180)
-
 
 ## Troubleshooting and known issues
 
