@@ -23,7 +23,7 @@ Below are instructions for creating the cluster.
   - e.g., CentOS Linux 7 x86_64 HVM EBS ENA ('Ohio' Region AMI ID: "ami-01e36b7901e884a10")
   - OS disk size: at least 50 GB.
 
-You can find a script for AWS CLI [here](https://github.com/YoshiyukiKono/cloudera-aws-scripts) (It is not mandatory to use this project).
+You can find a script for AWS CLI [here](https://github.com/YoshiyukiKono/cloudera-aws-scripts) (It is not mandatory to use this).
   
 ### Network Configuration
 - add 2 inbound rules to the Security Group:
