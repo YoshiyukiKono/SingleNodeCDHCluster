@@ -30,7 +30,7 @@ You can find a script for AWS CLI [here](https://github.com/YoshiyukiKono/cloude
   - to allow your IP only, for all ports.
   - to allow the VM's own IP, i.e., your Security Group, for all ports.
   
-### ProcedureH
+### Procedure
 SSH into the VM that you created.
 
 Run the subsequent processes as root account.
