@@ -18,7 +18,7 @@ This script automatically sets up a CDH cluster on the public cloud (AWS) on a s
 
 Below are instructions for creating the cluster.
 
-### Provisioning Cluster without CDSW
+### Provisioning Cluster
 - Create a Centos 7 VM with at least 8 vCPUs/ 32 GB RAM. Choose the plain vanilla Centos image, not a cloudera-centos image.
   - e.g., CentOS Linux 7 x86_64 HVM EBS ENA ('Ohio' Region AMI ID: "ami-01e36b7901e884a10")
 - OS disk size: at least 50 GB.
