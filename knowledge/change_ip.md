@@ -41,3 +41,68 @@ sudo sh -c "sed s/%SERVER_HOST%/`hostname`/ /etc/cloudera-scm-agent/config.ini.t
 $ sudo systemctl start cloudera-scm-agent
 $ sudo systemctl start cloudera-scm-server
 ```
+
+## Restart CM Service
+
+https://stackoverflow.com/questions/34648532/what-is-rest-api-to-start-cloudera-management-service
+
+https://cloudera.github.io/cm_api/apidocs/v11/path__cm_service_commands_start.html
+
+```
+$ curl -X POST -u "admin:admin" http://localhost:7180/api/v11/cm/service/commands/stop
+{
+  "id" : 316,
+  "name" : "Stop",
+  "startTime" : "2020-10-01T01:30:05.227Z",
+  "active" : true,
+  "serviceRef" : {
+    "serviceName" : "mgmt"
+  }
+}
+$ curl -X POST -u "admin:admin" http://localhost:7180/api/v11/cm/sevice/commands/start
+{
+  "id" : 321,
+  "name" : "Start",
+  "startTime" : "2020-10-01T01:30:28.005Z",
+  "active" : true,
+  "serviceRef" : {
+    "serviceName" : "mgmt"
+  }
+}
+```
+
+```
+$ curl -X POST -u "admin:admin" http://localhost:7180/api/v11/clusters/OneNodeCluster/commands/start
+{
+  "id" : 338,
+  "name" : "Start",
+  "startTime" : "2020-10-01T01:37:29.345Z",
+  "active" : true,
+  "clusterRef" : {
+    "clusterName" : "OneNodeCluster"
+  }
+}
+```
+
+```
+$ curl -X POST -u "admin:admin" -i -H "content-type:application/json" -d '{"restartOnlyStaleServices": false, "redepoyClientConfiguration": true}' http://localhost:7180/api/v11/clusters/OneNodeCluster/commands/restart
+HTTP/1.1 200 OK
+Date: Thu, 01 Oct 2020 01:48:25 GMT
+Set-Cookie: CLOUDERA_MANAGER_SESSIONID=node05bfgnzttca43emotzabzwuci33.node0;Path=/;HttpOnly
+Expires: Thu, 01 Jan 1970 00:00:00 GMT
+Content-Type: application/json;charset=utf-8
+X-XSS-Protection: 1; mode=block
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Transfer-Encoding: chunked
+
+{
+  "id" : 356,
+  "name" : "Restart",
+  "startTime" : "2020-10-01T01:48:25.347Z",
+  "active" : true,
+  "clusterRef" : {
+    "clusterName" : "OneNodeCluster"
+  }
+}
+```
