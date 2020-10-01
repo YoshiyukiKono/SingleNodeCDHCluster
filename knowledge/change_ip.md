@@ -83,6 +83,7 @@ $ curl -X POST -u "admin:admin" http://localhost:7180/api/v11/clusters/OneNodeCl
   }
 }
 ```
+https://cloudera.github.io/cm_api/apidocs/v11/ns0_apiRestartClusterArgs.html
 
 ```
 $ curl -X POST -u "admin:admin" -i -H "content-type:application/json" -d '{"restartOnlyStaleServices": false, "redepoyClientConfiguration": true}' http://localhost:7180/api/v11/clusters/OneNodeCluster/commands/restart
@@ -106,3 +107,7 @@ Transfer-Encoding: chunked
   }
 }
 ```
+
+https://cloudera.github.io/cm_api/docs/quick-start/
+
+
