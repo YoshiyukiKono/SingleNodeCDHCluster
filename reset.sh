@@ -13,7 +13,7 @@ sudo sh -c "sed s/%SERVER_HOST%/`hostname`/ /etc/cloudera-scm-agent/config.ini.t
 sudo systemctl start cloudera-scm-agent
 sudo systemctl start cloudera-scm-server
 
-sleep 120
+sleep 300
 
 curl -X POST -u "admin:admin" http://localhost:7180/api/v11/cm/service/commands/stop
 
